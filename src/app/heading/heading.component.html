@@ -1,0 +1,36 @@
+
+<div class='container'>
+
+    
+    <div class='container'>
+        <div class='row border border-dark'>
+            <div class='col-3'>
+                Welcome
+            </div>
+            <div class='col-3'>
+                to
+            </div>
+            <div class='col-3'>
+                project
+            </div>
+            <div class='col-3'>
+                sandwich
+            </div>
+        </div>
+
+        <div class='row border border-dark'>
+            <div class='col-3'>
+                Your currency?
+            </div>
+            <div class='col-3   {{euro ? "sel" : "desel" }}     '  (click)="selectEuro()" >
+                euro
+            </div>
+            <div class='col-3 {{franc ? "sel" : "desel" }} '  (click)="selectFranc()">
+                franc
+            </div>
+            <div class='col-3 {{yen ? "sel" : "desel" }} ' (click)="selectYen()" >
+                yen
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SharedserviceService} from './services/sharedservice.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'project4';
+  title = 'project S';
+  
+  constructor(  private sharedService: SharedserviceService  ) {
+
+    console.log( "\nnew app\n");
+    console.log(  Date.now() );
+
+    
+    
+    this.sharedService.setSandwichId( Date.now().toString() )
+
+  }
 }

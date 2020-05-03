@@ -1,5 +1,10 @@
 :host {
-    margin-top: 50px;
+    padding-top: 50px;
     margin-bottom: 50px;
     display: block;
+}
+
+.sel
+{
+    color:yellow;
 }
