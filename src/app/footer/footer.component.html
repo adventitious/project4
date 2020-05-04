@@ -14,9 +14,17 @@
         </div>
         <div class='col-3'>
             
+            <img class=" {{complete ? 'd-none' : '' }}"
+                src="{{ imageSource }}"
+            
+                [style.width.px]='imageWidth' 
+            />
+
         </div>
         <div class='col-3'>
-            <button type="submit" class="btn btn-dark"  >Order</button>
+
+            <button   type="submit" class="btn btn-dark  {{complete ? '' : 'd-none' }}   "  (click)="orderNow()" >Order</button>
+
         </div>
     </div>
 </div>

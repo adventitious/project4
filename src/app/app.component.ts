@@ -27,22 +27,12 @@ export class AppComponent {
     this._currencyService.getCurrencyData().subscribe(
       currencyData => {
         this.currencyData = currencyData;
-        console.log('quotes: ' + this.currencyData.quotes);
         
-        let usdeur: number  = this.currencyData.quotes['USDEUR'];
-        let usdchf: number  = this.currencyData.quotes['USDCHF'];
-        let usdjpy: number  = this.currencyData.quotes['USDJPY'];
+        console.log('quotes: ' +  this.currencyData.result['EURCHF']['c'][0] );
 
-        
-        console.log('usdeur: ' + usdeur );
-        console.log('usdchf: ' + usdchf );
-        console.log('usdjpy: ' + usdjpy );
 
-        let eurchf: number = usdchf / usdeur;
-        let eurjpy: number = usdjpy / usdeur;
-
-        console.log('eurchf: ' + eurchf );
-        console.log('eurjpy: ' + eurjpy );
+        let eurchf: number = this.currencyData.result['EURCHF']['c'][0] 
+        let eurjpy: number = this.currencyData.result['EURJPY']['c'][0] 
 
         this.sharedService.setEurjpy( eurjpy );
         this.sharedService.setEurchf( eurchf );

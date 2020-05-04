@@ -22,7 +22,6 @@ export class SandwichApiService {
 
   allIngredient2sData: IIngredient[];
 
-  sandwichId:string;
   errorMessage: string;
 
   constructor( private _http: HttpClient, private _afs: AngularFirestore,
@@ -31,17 +30,19 @@ export class SandwichApiService {
     // https://stackoverflow.com/questions/50376352/filter-data-from-firestore-whit-angularfire
     // this.afs.collection('avisos', ref => ref.where('categoria','==', categoriaToFilter )).valueChanges()
     // , ref => ref.where('categoria','==', categoriaToFilter )
+    
+    let sandwichId : string;
+
+    this.sharedService.sharedSandwichId.subscribe(sharedSandwichId => sandwichId = sharedSandwichId)
+    console.log( "new SandwichApiService : sandwichId: " + sandwichId );
+
+    this.ingredient2sDataCollection = this._afs.collection<IIngredient>(
+        "sandwich_data" ,
+        ref => ref.where('sandwichId','==', sandwichId )
+        );
 
     
-    this.sharedService.sharedSandwichId.subscribe(sandwichId => this.sandwichId = sandwichId)
-    console.log( "new SandwichApiService : sandwichId: " + this.sandwichId );
-
-    this.ingredient2sDataCollection =_afs.collection<IIngredient>(
-        "sandwich_data" ,
-        ref => ref.where('sandwichId','==', this.sandwichId )
-        );
   }
-
 
   getIngredientData(): Observable<IIngredient[]>{
     this.ingredient2sData = this.ingredient2sDataCollection.valueChanges(  { idField:'id'}  );
@@ -54,6 +55,7 @@ export class SandwichApiService {
     this.ingredient2sDataCollection.add(JSON.parse(JSON.stringify(ingredient)));
   }
 
+  
   
   
   delIngredient2Data( ingredient2Id: string ): void{

@@ -1,3 +1,4 @@
 export interface CurrencyResponse {
-    quotes: string;
+    result: string;
+    error: string;
 }

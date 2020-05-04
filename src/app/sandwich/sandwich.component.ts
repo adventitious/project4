@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IIngredient, Ingredient } from '../interfaces/ingredient';
-import { SandwichApiService } from '../services/sandwich-api.service'
+import { SandwichApiService } from '../services/sandwich-api.service';
 
 @Component({
   selector: 'app-sandwich',

@@ -31,7 +31,7 @@ export class Ingredient2Component implements OnInit {
   
   getNewPrice( price: string ): string
   {
-    return (Math.round( (+price * this.currency2) * 1000) / 1000 ).toString();
+    return (Math.round( (+price * this.currency2) * 100 ) / 100 ).toString();
     //return (+price * this.currency2).toString();
   }
 

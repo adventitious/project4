@@ -34,7 +34,7 @@ export class IngredientComponent implements OnInit {
 
   getNewPrice( price: string ): string
   {
-    return (Math.round( (+price * this.currency2) * 1000) / 1000 ).toString();
+    return (Math.round( (+price * this.currency2) * 100) / 100 ).toString();
   }
   
   addTheIngredient( title: string, description: string, price: string, imageURL: string  ): boolean {

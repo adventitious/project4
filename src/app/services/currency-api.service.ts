@@ -10,8 +10,12 @@ import { CurrencyResponse} from '../interfaces/currency-response';
 
 export class CurrencyApiService {
 
-  private _siteURL= "http://api.currencylayer.com/live";
-  private _key= "?access_key=18d4fe107778434f1459ef0857e93acd&currencies=chf,eur,JPY&format=1";
+  // https://api.kraken.com/0/public/Ticker?pair=EURCHF,EURJPY
+
+  // private _siteURL= "https://api.currencylayer.com/live";
+  private _siteURL= "https://api.kraken.com/0/public/Ticker?pair=EURCHF,EURJPY";
+  // private _key= "?access_key=18d4fe107778434f1459ef0857e93acd&currencies=chf,eur,JPY&format=1";
+  private _key= "";
 
   constructor(  private _http:HttpClient ) { }
 
