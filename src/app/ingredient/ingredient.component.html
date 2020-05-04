@@ -10,13 +10,13 @@
         <div class='col-3'>
             {{ingredientData.title}}
         </div>
-        <div class='col-3'>
+        <div class='col-4'>
             
             <img src='{{ingredientData.imageURL}}'
              [style.width.px]='200' />
 
         </div>
-        <div class='col-3'>
+        <div class='col-2'>
             <button type="submit" class="btn btn-dark" (click)="addTheIngredient(
                 ingredientData.title,  ingredientData.description,  ingredientData.price,
                 ingredientData.imageURL

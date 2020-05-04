@@ -37,6 +37,10 @@ export class FooterComponent implements OnInit {
 
   getNewPrice( ): string
   {
+    if( (+this.priceTotal * this.currency2 ) < 0.0001 )
+    {
+      return "";
+    }
     return (Math.round( (+this.priceTotal * this.currency2) * 100) / 100 ).toString();
     // return (+this.priceTotal * this.currency2).toString();
   }
