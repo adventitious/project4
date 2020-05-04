@@ -24,8 +24,8 @@ export class IngredientComponent implements OnInit {
                private sharedService: SharedserviceService ) {
     console.log( "new ingredient : 1" );
     
-    this.sharedService.sharedCurrency.subscribe( zz => this.currency = zz  )
-    this.sharedService.sharedCurrency2.subscribe( ww => this.currency2 = ww  )
+    this.sharedService.sharedCurrency.subscribe( sharedCurrency => this.currency = sharedCurrency  )
+    this.sharedService.sharedCurrency2.subscribe( sharedCurrency2 => this.currency2 = sharedCurrency2  )
 
   }
 

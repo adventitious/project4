@@ -12,8 +12,6 @@ export class HeadingComponent implements OnInit {
   franc: boolean=  false;
   yen:   boolean=  false;
 
-  // currency: string = "€";
-
   constructor( private sharedService: SharedserviceService ) { }
 
   ngOnInit(): void {
@@ -21,24 +19,20 @@ export class HeadingComponent implements OnInit {
 
   selectEuro( ): void 
   {
-    console.log(" eddfdfsf");
-      
     this.euro  = !false;
     this.franc =  false;
     this.yen   =  false;
 
-    this.sharedService.setCurrency( '€' );
-    this.sharedService.setCurrency2( 1 );
+    this.sharedService.setToEuro( );
   }
   
   selectFranc( ): void 
   {
     this.euro  =  false;
-    this.franc = !false; // JP¥
+    this.franc = !false;
     this.yen   =  false;
 
-    this.sharedService.setCurrency( 'chf' );
-    this.sharedService.setCurrency2( 0.6 );
+    this.sharedService.setToChf( );
   }
 
   selectYen( ): void 
@@ -47,8 +41,7 @@ export class HeadingComponent implements OnInit {
     this.franc =  false;
     this.yen   = !false;
 
-    this.sharedService.setCurrency( 'JP¥' );
-    this.sharedService.setCurrency2( 13.5 );
+    this.sharedService.setToJpy( );
   }
 
 }

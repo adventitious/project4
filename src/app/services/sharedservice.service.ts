@@ -22,6 +22,13 @@ export class SharedserviceService {
   private currency2 = new BehaviorSubject(1);
   sharedCurrency2 = this.currency2.asObservable();
 
+  
+  private eurchf = new BehaviorSubject(1.2);
+  sharedEurchf = this.eurchf.asObservable();
+
+  private eurjpy = new BehaviorSubject(100);
+  sharedEurjpy = this.eurjpy.asObservable();
+
   constructor() { }
 
 
@@ -49,6 +56,43 @@ export class SharedserviceService {
     console.log( "new currency2 : " + message );
   }
   
+  setToEuro()
+  {
+    this.setCurrency( '€' );
+    this.setCurrency2( 1 );
+  }
   
+  setToChf()
+  {
+    this.setCurrency( 'chf' );
+
+    let x : number;
+
+    this.sharedEurchf.subscribe( sharedEurchf => x = sharedEurchf  )
+
+    this.setCurrency2( x );
+  }
+  
+  setToJpy()
+  {
+    this.setCurrency( 'JP¥' );
+
+    let x : number;
+
+    this.sharedEurjpy.subscribe( sharedEurjpy => x = sharedEurjpy  )
+
+    this.setCurrency2( x );
+  }
+  
+  setEurjpy( message: number )
+  {
+    this.eurjpy.next(message);
+  }
+
+  setEurchf( message: number )
+  {
+    this.eurchf.next(message);
+  }
+
 }
 

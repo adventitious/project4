@@ -27,7 +27,7 @@ export class FooterComponent implements OnInit {
 
   getNewPrice( ): string
   {
-    return (Math.round( (+this.priceTotal * this.currency2) * 1000) / 1000 ).toString();
+    return (Math.round( (+this.priceTotal * this.currency2) * 100) / 100 ).toString();
     // return (+this.priceTotal * this.currency2).toString();
   }
 
@@ -42,13 +42,6 @@ export class FooterComponent implements OnInit {
       return this.currency;
     }
   }
-
-  
-  getTotal(): string
-  {
-     return (Math.round( +this.priceTotal * 10000) / 10000 ).toString();
-  }
-// 
 
   ngOnInit(): void {
   }
